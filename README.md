@@ -4,7 +4,7 @@
 
 Short summary on functionality and used technologies.
 
-[picture of the solution in action, if possible]
+![alert bar image](/sharepoint/assets/alert-bar.png)
 
 ## Used SharePoint Framework Version
 
@@ -19,20 +19,21 @@ Short summary on functionality and used technologies.
 
 ## Prerequisites
 
-> Any special pre-requisites?
+> Create a list called Alerts on the site you want to deploy this extension on with these fields:
+  - Title - this will be the field that shows in the top bar
+  - Expires (Date and time) - this will be the field to determine if an alert should show
 
 ## Solution
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+| spfx-alert-bar | [MRS Company Ltd](https://mrscompany.com) |
 
 ## Version history
 
 | Version | Date             | Comments        |
 | ------- | ---------------- | --------------- |
-| 1.1     | March 10, 2021   | Update comment  |
-| 1.0     | January 29, 2021 | Initial release |
+| 1.0     | November 22, 2023 | Initial release |
 
 ## Disclaimer
 
@@ -42,27 +43,41 @@ Short summary on functionality and used technologies.
 
 ## Minimal Path to Awesome
 
-- Clone this repository
-- Ensure that you are at the solution folder
-- in the command-line run:
-  - **npm install**
-  - **gulp serve**
+Clone repository and navigate to solution folder
 
-> Include any additional steps as needed.
+```bash
+git clone https://github.com/mrscompanyltd/spfx-alert-bar
+cd spfx-alert-bar
+```
+
+Add dependencies
+
+```bash
+npm i
+```
+
+Serve (update /config/serve.json with your page URL)
+
+```bash
+gulp serve
+```
+
+Build and package
+
+```bash
+gulp build && gulp bundle --ship && gulp package-solution --ship # Builds, bundles, and creates sppkg file
+```
+
+Upload sppkg package from /sharepoint/solution/spfx-alert-bar.sppkg.
 
 ## Features
 
-Description of the extension that expands upon high-level summary above.
+This application customizer reads alerts from a list (list should be called "Alerts" on the same site as the extension). Based on the "Expires" date for the alert, the application customizer will render each alert at the top of the page, cycling every 10 seconds. They can also be cycled manually.
 
-This extension illustrates the following concepts:
-
-- topic 1
-- topic 2
-- topic 3
-
-> Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
-
-> Share your web part with others through Microsoft 365 Patterns and Practices program to get visibility and exposure. More details on the community, open-source projects and other activities from http://aka.ms/m365pnp.
+Specifically, it uses the following features:  
+- SPFx Application Customizer
+- Page Placeholder (top)
+- SPHttpClient and SharePoint List API
 
 ## References
 
