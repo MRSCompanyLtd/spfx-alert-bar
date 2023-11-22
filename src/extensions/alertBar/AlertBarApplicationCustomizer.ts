@@ -13,13 +13,7 @@ import { Dialog } from '@microsoft/sp-dialog';
 
 const LOG_SOURCE: string = 'AlertBarApplicationCustomizer';
 
-/**
- * If your command set uses the ClientSideComponentProperties JSON input,
- * it will be deserialized into the BaseExtension.properties object.
- * You can define an interface to describe it.
- */
 export interface IAlertBarApplicationCustomizerProperties {
-
 }
 
 /** A Custom Action which can be run during execution of a Client Side Application */
@@ -32,6 +26,7 @@ export default class AlertBarApplicationCustomizer
     console.log('[AlertBarApplicationCustomizer._onDispose] Disposed placeholders.');
 
     if (this._topPlaceholder) {
+      // Unmount React component when disposing
       ReactDOM.unmountComponentAtNode(this._topPlaceholder.domElement);
       this._topPlaceholder.dispose();
     }
@@ -59,7 +54,7 @@ export default class AlertBarApplicationCustomizer
       );
   
       ReactDOM.render(el, this._topPlaceholder.domElement, () => {
-        // Add static class to top placeholder
+        // Add static class to top placeholder so we can reference it later (to ensure no duplicate)
         this._topPlaceholder?.domElement.classList.add('alert-bar');
       });
     }).catch((e) => {
@@ -79,8 +74,11 @@ export default class AlertBarApplicationCustomizer
 
   private async _getAlerts(): Promise<IAlert[]> {
     try {
+      let url: string = `${this.context.pageContext.web.absoluteUrl}/_api/web/lists/getByTitle('Alerts')/items?`;
+      url += `$select=Id,Title,Expires&$filter=Expires ge datetime'${new Date().toISOString()}'`;
+
       const res: SPHttpClientResponse = await this.context.spHttpClient.get(
-        `${this.context.pageContext.web.absoluteUrl}/_api/web/lists/getbytitle('Alerts')/items?$select=Id,Title,Expires&$filter=Expires ge datetime'${new Date().toISOString()}'`,
+        url,
         SPHttpClient.configurations.v1
       );
 
