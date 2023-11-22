@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "alert-bar-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/alertBar/AlertBarApplicationCustomizer.js",
+          "manifest": "./src/extensions/alertBar/AlertBarApplicationCustomizer.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AlertBarApplicationCustomizerStrings": "lib/extensions/alertBar/loc/{locale}.js"
+  }
+}

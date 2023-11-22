@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.19.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.9.1"
+    },
+    "version": "1.17.4",
+    "libraryName": "spfx-alert-bar",
+    "libraryId": "99205214-7786-4487-87d9-fccc15d7688e",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "spfx-alert-bar",
+    "solutionShortDescription": "spfx-alert-bar description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ApplicationCustomizer"
+  }
+}

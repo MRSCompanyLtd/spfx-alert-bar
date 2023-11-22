@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-alert-bar-client-side-solution",
+    "id": "99205214-7786-4487-87d9-fccc15d7688e",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "MRS Company Ltd.",
+      "websiteUrl": "https://mrscompany.com",
+      "privacyUrl": "https://mrscompany.com/policies",
+      "termsOfUseUrl": "https://mrscompany.com/policies",
+      "mpnId": "65260"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Alert bar for SharePoint sites"
+      },
+      "longDescription": {
+        "default": "Alert bar for SharePoint sites. Picks up alerts from the Alerts list and displays if there are any active items."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "Application Extension - Alert Bar",
+        "description": "Deploys a custom action with ClientSideComponentId association",
+        "id": "039365c0-73c6-4f37-8bc3-cad9d2679827",
+        "version": "1.0.0.0",
+        "assets": {
+          "elementManifests": [
+            "elements.xml",
+            "ClientSideInstance.xml"
+          ]
+        }
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-alert-bar.sppkg"
+  }
+}
