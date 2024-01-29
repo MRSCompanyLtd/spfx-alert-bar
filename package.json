@@ -9,6 +9,7 @@
   "scripts": {
     "build": "gulp bundle",
     "clean": "gulp clean",
+    "package": "gulp build && gulp bundle --ship && gulp package-solution --ship",
     "test": "gulp test"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
     "@microsoft/sp-core-library": "1.17.4",
     "@microsoft/sp-dialog": "1.17.4",
     "@microsoft/sp-office-ui-fabric-core": "^1.18.2",
+    "follow-redirects": ">=1.15.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "tslib": "2.3.1"
@@ -31,6 +33,7 @@
     "@types/webpack-env": "~1.15.2",
     "ajv": "^6.12.5",
     "eslint": "8.7.0",
+    "follow-redirects": ">=1.15.4",
     "gulp": "4.0.2",
     "typescript": "4.5.5"
   }
